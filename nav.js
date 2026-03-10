@@ -5,6 +5,8 @@
   const DURATION       = 780;  // ms — must match CSS transition
   const WHEEL_MIN      = 40;   // deltaY threshold to trigger
 
+  function isMobile() { return window.innerWidth <= 768; }
+
   let sections = [];
   let current  = 0;
   let locked   = false;
@@ -91,6 +93,7 @@
 
   /* ── Wheel ──────────────────────────────────────────────────── */
   window.addEventListener('wheel', e => {
+    if (isMobile()) return;
     e.preventDefault();
     if (Math.abs(e.deltaY) < WHEEL_MIN) return;
     goTo(e.deltaY > 0 ? current + 1 : current - 1);
@@ -98,6 +101,7 @@
 
   /* ── Keyboard ───────────────────────────────────────────────── */
   window.addEventListener('keydown', e => {
+    if (isMobile()) return;
     if (e.key === 'ArrowDown' || e.key === 'PageDown') { e.preventDefault(); goTo(current + 1); }
     if (e.key === 'ArrowUp'   || e.key === 'PageUp')   { e.preventDefault(); goTo(current - 1); }
   });
@@ -106,6 +110,7 @@
   let touchY0 = 0;
   window.addEventListener('touchstart', e => { touchY0 = e.touches[0].clientY; }, { passive: true });
   window.addEventListener('touchend', e => {
+    if (isMobile()) return;
     const diff = touchY0 - e.changedTouches[0].clientY;
     if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
   }, { passive: true });
@@ -114,6 +119,7 @@
   function bindSamePageLinks() {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
+        if (isMobile()) return; // let native anchor scroll work on mobile
         const id  = link.getAttribute('href').slice(1);
         const idx = sections.findIndex(s => s.id === id);
         if (idx >= 0) { e.preventDefault(); goTo(idx); }

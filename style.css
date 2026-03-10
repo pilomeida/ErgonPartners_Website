@@ -646,6 +646,47 @@ footer {
   .page-dots { display: none; }
   .ft-nav { display: none; }
   .sub-footer nav { display: none; }
+
+  /* ── Mobile: normal page scroll (no fullscreen snap) ── */
+  body {
+    overflow-y: auto;
+    padding-top: var(--hdr);
+  }
+  section {
+    position: relative !important;
+    height: auto !important;
+    overflow: visible !important;
+    transform: none !important;
+    transition: none !important;
+    padding-top: 56px;
+    padding-bottom: 64px;
+    scroll-margin-top: var(--hdr);
+  }
+  /* Hero still takes most of the screen */
+  #inicio {
+    min-height: calc(100svh - var(--hdr));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 40px;
+  }
+  /* Sections with their own internal layout */
+  #visao-geral { padding-top: 0; padding-bottom: 0; }
+  #contacto    { padding-top: 0; padding-bottom: 0; }
+
+  /* Sub-footer: flow naturally at end of section on mobile */
+  .sub-footer {
+    position: static;
+    margin: 40px calc(-1 * var(--px)) 0;
+  }
+  body.subpage section { padding-bottom: 0; }
+
+  /* All fade-in elements visible immediately (JS animation disabled on mobile) */
+  .fi {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
 
 /* ── PREVIEW BLOCKS (homepage middle section) ──────────────────── */
@@ -743,14 +784,16 @@ footer {
     grid-template-rows: none;
     align-content: start;
     padding-top: 0;
+    background: var(--white); /* remove split gradient on single column */
   }
   .pb {
     grid-row: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: calc(var(--hdr) + 40px) var(--px) 48px;
+    padding: 56px var(--px) 48px; /* no longer needs to offset fixed header */
   }
+  .pb-right { background: var(--light-bg); border-left: none; border-top: 1px solid #E4E9ED; }
   .pb-title, .pb-body { max-width: 100%; }
   .pb-right { border-left: none; border-top: 1px solid #E4E9ED; }
   .pb-flow { display: none; }
