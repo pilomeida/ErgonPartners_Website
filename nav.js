@@ -132,8 +132,23 @@
     const btn = document.getElementById('hbg');
     const mob = document.getElementById('mob-nav');
     if (!btn || !mob) return;
+
+    const closeNav = () => mob.classList.remove('open');
+
     btn.addEventListener('click', () => mob.classList.toggle('open'));
-    mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mob.classList.remove('open')));
+
+    // Close on any link or lang button click inside nav
+    mob.querySelectorAll('a, .lang-btn').forEach(el => el.addEventListener('click', closeNav));
+
+    // Close on scroll
+    window.addEventListener('scroll', closeNav, { passive: true });
+
+    // Close on touch outside the nav and hamburger button
+    document.addEventListener('touchstart', e => {
+      if (mob.classList.contains('open') && !mob.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+        closeNav();
+      }
+    }, { passive: true });
   }
 
   /* ── FAQ accordion ──────────────────────────────────────────── */

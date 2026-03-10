@@ -512,6 +512,7 @@ section.no-anim { transition: none !important; }
 /* ── PEDRO ────────────────────────────────────────────────────── */
 #pedro { background: var(--white); }
 .pedro-grid { display: grid; grid-template-columns: 340px 1fr; gap: 60px; align-items: center; }
+.pedro-cta { grid-column: 2; margin-top: 4px; align-self: start; }
 .pedro-photo { position: relative; }
 .pedro-photo img { width: 100%; border-radius: 1px; }
 .pedro-photo::after {
@@ -635,8 +636,10 @@ footer {
   .orig-wrap { grid-template-columns: 1fr; }
   .orig-img { height: 38vh; }
   .orig-text-panel { padding: 24px var(--px) 32px; }
-  .pedro-grid { grid-template-columns: 1fr; }
-  .pedro-photo { max-width: 240px; }
+  .pedro-grid { display: flex; flex-direction: column; gap: 28px; }
+  .pedro-bio   { order: 1; }
+  .pedro-photo { order: 2; max-width: 240px; }
+  .pedro-cta   { order: 3; }
   .ct-body { grid-template-columns: 1fr; gap: 32px; }
   .page-dots { display: none; }
   .ft-nav { display: none; }
@@ -669,10 +672,26 @@ footer {
   #visao-geral { padding-top: 0; padding-bottom: 0; }
   #contacto    { padding-top: 0; padding-bottom: 0; }
 
+  /* Contacto link in mobile nav styled as button */
+  .mob-nav a.nav-cta {
+    display: inline-block;
+    margin-top: 12px;
+    border: 1px solid rgba(242, 191, 0, 0.5);
+    padding: 9px 22px;
+    border-radius: 2px;
+    color: var(--gold);
+    font-weight: 400;
+    border-bottom: 1px solid rgba(242, 191, 0, 0.5); /* override mob-nav a border */
+  }
+  .mob-nav a.nav-cta:hover {
+    border-color: var(--gold);
+    background: rgba(242, 191, 0, 0.08);
+  }
+
   /* Sub-footer: flow naturally at end of section on mobile */
   .sub-footer {
     position: static;
-    margin: 40px calc(-1 * var(--px)) 0;
+    margin: 60px calc(-1 * var(--px)) 0;
   }
   body.subpage section { padding-bottom: 0; }
 
