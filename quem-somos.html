@@ -42,22 +42,20 @@
 
 <!-- mobile nav -->
 <nav class="mob-nav" id="mob-nav">
-  <div class="mob-lang-sw">
-    <button class="lang-btn" data-lang="pt">PT</button>
-    <button class="lang-btn" data-lang="es">ES</button>
-    <button class="lang-btn" data-lang="en">EN</button>
+  <div class="lang-sw">
+    <button class="lang-drop-btn" aria-haspopup="true" aria-expanded="false">
+      <span class="lang-drop-cur">PT</span>
+      <svg class="lang-drop-ico" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="lang-drop-list" hidden>
+      <button class="lang-btn lang-active" data-lang="pt">PT</button>
+      <button class="lang-btn" data-lang="es">ES</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
   </div>
   <a href="index.html" data-i18n="nav.home">Início</a>
-  <div class="mob-group-title" data-i18n="mob.grp.what">O Que Fazemos</div>
-  <a href="o-que-fazemos.html" data-i18n="mob.model">O Modelo</a>
-  <a href="o-que-fazemos.html#como-funciona" data-i18n="mob.how">Como Funciona</a>
-  <a href="o-que-fazemos.html#que-empresas" data-i18n="mob.companies">Que Empresas Procuramos</a>
-  <a href="o-que-fazemos.html#transicao" data-i18n="mob.transition">A Transição</a>
-  <a href="o-que-fazemos.html#faq" data-i18n="mob.faq">Perguntas Frequentes</a>
-  <div class="mob-group-title" data-i18n="mob.grp.who">Quem Somos</div>
-  <a href="#origem" data-i18n="mob.origin">A Origem de Ergon</a>
-  <a href="#pedro" data-i18n="mob.pedro">Pedro Almeida</a>
-  <a href="#investidores" data-i18n="mob.investors">Os Investidores</a>
+  <a href="o-que-fazemos.html" data-i18n="nav.what">O Que Fazemos</a>
+  <a href="quem-somos.html" data-i18n="nav.who">Quem Somos</a>
   <a href="index.html#contacto" data-i18n="nav.contact">Contacto</a>
 </nav>
 
