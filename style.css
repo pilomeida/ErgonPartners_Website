@@ -512,7 +512,7 @@ section.no-anim { transition: none !important; }
 /* ── PEDRO ────────────────────────────────────────────────────── */
 #pedro { background: var(--white); }
 .pedro-grid { display: grid; grid-template-columns: 340px 1fr; gap: 60px; align-items: center; }
-.pedro-cta { grid-column: 2; margin-top: 4px; align-self: start; }
+.pedro-cta { grid-column: 2; margin-top: 4px; align-self: start; justify-self: start; }
 .pedro-photo { position: relative; }
 .pedro-photo img { width: 100%; border-radius: 1px; }
 .pedro-photo::after {
