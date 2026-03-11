@@ -639,7 +639,7 @@ footer {
   .pedro-grid { display: flex; flex-direction: column; gap: 28px; }
   .pedro-bio   { order: 1; }
   .pedro-photo { order: 2; max-width: 240px; }
-  .pedro-cta   { order: 3; }
+  .pedro-cta   { order: 3; align-self: flex-start; }
   .ct-body { grid-template-columns: 1fr; gap: 32px; }
   .page-dots { display: none; }
   .ft-nav { display: none; }
